@@ -266,6 +266,14 @@ export function processHeadingPauses(text: string): string {
   );
 }
 
+/**
+ * Remove Markdown heading markers (#) — PRD 2.3.
+ * "## 标题" → "标题", "### 小节" → "小节"
+ */
+export function removeHeadingMarkers(text: string): string {
+  return text.replace(/^#{1,6}\s+/gm, "");
+}
+
 export interface ProcessedText {
   text: string;
   isEmpty: boolean;
@@ -326,19 +334,22 @@ export function preprocessText(
   // 10. Process checklists
   text = processChecklists(text);
 
-  // 11. Process unordered list markers (PRD 6.3.3 规则 1: must run after checklists)
+  // 11. Remove heading markers (# ## ### etc.) — PRD 2.3
+  text = removeHeadingMarkers(text);
+
+  // 12. Process unordered list markers (PRD 6.3.3 规则 1: must run after checklists)
   text = processUnorderedListMarkers(text);
 
-  // 12. Process heading number pauses (PRD 2.3: 二、→ 二，)
+  // 13. Process heading number pauses (PRD 2.3: 二、→ 二，)
   text = processHeadingPauses(text);
 
-  // 13. Process blockquotes
+  // 14. Process blockquotes
   text = processBlockquotes(text, settings.quotePrefix);
 
-  // 14. Smart pause after closing quotes (PRD 6.3.3 规则 2)
+  // 15. Smart pause after closing quotes (PRD 6.3.3 规则 2)
   text = processQuotePauses(text);
 
-  // 15. Filter emoji (do this last)
+  // 16. Filter emoji (do this last)
   if (settings.filterEmoji) {
     text = removeEmoji(text);
   }
