@@ -1,0 +1,9 @@
+{
+  "id": "nox-tts",
+  "name": "NoxTTS",
+  "version": "1.0.0",
+  "minAppVersion": "0.15.0",
+  "description": "CosyVoice2 TTS plugin for Obsidian — read your notes aloud with smart text preprocessing.",
+  "author": "NoxTTS",
+  "isDesktopOnly": false
+}

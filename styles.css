@@ -1,0 +1,174 @@
+/* NoxTTS Control Panel */
+.nox-tts-control-panel {
+  padding: 16px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.nox-tts-control-panel .nox-tts-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-normal);
+}
+
+.nox-tts-control-panel .nox-tts-note-title {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nox-tts-control-panel .nox-tts-progress {
+  margin-bottom: 8px;
+}
+
+.nox-tts-control-panel .nox-tts-progress input[type="range"] {
+  width: 100%;
+  margin: 4px 0;
+}
+
+.nox-tts-control-panel .nox-tts-time-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.nox-tts-control-panel .nox-tts-speed {
+  font-weight: 500;
+  color: var(--text-accent);
+}
+
+.nox-tts-control-panel .nox-tts-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.nox-tts-control-panel .nox-tts-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: var(--interactive-normal);
+  color: var(--text-normal);
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.15s;
+}
+
+.nox-tts-control-panel .nox-tts-btn:hover {
+  background: var(--interactive-hover);
+}
+
+.nox-tts-control-panel .nox-tts-btn-play {
+  width: 48px;
+  height: 48px;
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  font-size: 20px;
+}
+
+.nox-tts-control-panel .nox-tts-btn-play:hover {
+  background: var(--interactive-accent-hover);
+}
+
+.nox-tts-control-panel .nox-tts-info {
+  font-size: 12px;
+  color: var(--text-faint);
+  margin-bottom: 12px;
+}
+
+.nox-tts-control-panel .nox-tts-info span {
+  margin-right: 12px;
+}
+
+.nox-tts-control-panel .nox-tts-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.nox-tts-control-panel .nox-tts-actions button {
+  font-size: 12px;
+  padding: 4px 12px;
+}
+
+/* Status Bar */
+.nox-tts-status-bar {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  padding: 0 8px;
+}
+
+.nox-tts-status-bar:hover {
+  background: var(--background-modifier-hover);
+  border-radius: 4px;
+}
+
+/* Floating control panel */
+.nox-tts-floating {
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+  width: 320px;
+  max-height: 480px;
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.nox-tts-floating .nox-tts-control-panel {
+  padding: 12px 16px;
+}
+
+/* Notification styles */
+.nox-tts-notice-error {
+  color: var(--text-error);
+}
+
+.nox-tts-notice-warning {
+  color: var(--text-warning);
+}
+
+/* Embedded audio player in notes — hide native overflow menu (three dots) */
+.nox-tts-embed audio::-webkit-media-controls-overflow-button,
+.nox-tts-embed audio::-webkit-media-controls-enclosure [aria-label="More options"],
+.nox-tts-embed audio::-webkit-media-controls-overflow-menu-list {
+  display: none !important;
+}
+
+/* For Firefox */
+.nox-tts-embed audio::-moz-media-controls-overflow-button {
+  display: none !important;
+}
+
+.nox-tts-embed audio {
+  border-radius: 6px;
+}
+
+.nox-tts-embed .nox-tts-speed-select {
+  cursor: pointer;
+}
+
+.nox-tts-embed .nox-tts-speed-select:hover {
+  border-color: var(--interactive-accent);
+}
